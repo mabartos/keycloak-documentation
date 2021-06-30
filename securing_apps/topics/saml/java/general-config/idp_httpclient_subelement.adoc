@@ -16,7 +16,10 @@ verification via SAML descriptor of the IDP when
             clientKeystorePassword="pwd"
             truststore="classpath:truststore.jks"
             truststorePassword="pwd"
-            proxyUrl="http://proxy/" />
+            proxyUrl="http://proxy/"
+            socketTimeout="5000"
+            connectionTimeout="6000"
+            connectionTTL="500" />
 ----
 
 connectionPoolSize::
@@ -64,4 +67,17 @@ clientKeystorePassword::
 
 proxyUrl::
   URL to HTTP proxy to use for HTTP connections.
+  This is _OPTIONAL_.
+
+socketTimeout::
+  Timeout for socket waiting for data after establishing the connection in milliseconds.
+  Maximum time of inactivity between two data packets.
+  This is _OPTIONAL_.
+
+connectionTimeout::
+  Timeout for establishing the connection with the remote host in milliseconds.
+  This is _OPTIONAL_.
+
+connectionTTL::
+  Connection time-to-live for client in milliseconds.
   This is _OPTIONAL_.

@@ -27,6 +27,9 @@ This is what one might look like:
    },
 
    "connection-pool-size" : 20,
+   "socket-timeout": 5000,
+   "connection-timeout": 6000,
+   "connectionTTL": 500,
    "disable-trust-manager": false,
    "allow-any-hostname" : false,
    "truststore" : "path/to/truststore.jks",
@@ -149,6 +152,19 @@ connection-pool-size::
   This config option defines how many connections to the {project_name} server should be pooled.
   This is _OPTIONAL_.
   The default value is `20`.
+
+socket-timeout::
+  Timeout for socket waiting for data after establishing the connection in milliseconds.
+  Maximum time of inactivity between two data packets.
+  This is _OPTIONAL_.
+
+connection-timeout::
+  Timeout for establishing the connection with the remote host in milliseconds.
+  This is _OPTIONAL_.
+
+connection-ttl::
+  Connection time-to-live for client in milliseconds.
+  This is _OPTIONAL_.
 
 disable-trust-manager::
   If the {project_name} server requires HTTPS and this config option is set to `true` you do not have to specify a truststore.
